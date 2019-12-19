@@ -1,0 +1,17 @@
+{{#if beer}}
+    <div class="card">
+        <img src="{{beer.image_url}}" class="card image-beer d-flex align-items-center" alt={{beer.name}}>
+        <div class="card-body">
+            <h5 class="card-title">{{beer.name}}</h5>
+            <p class="card-text">{{beer.description}}</p>
+
+        </div>
+          <ul class="list-group list-group-flush">
+            {{#each beer.ingredients}}
+                <li class="list-group-item">
+                    {{@key}}{{@value}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}

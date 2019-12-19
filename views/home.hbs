@@ -1,0 +1,16 @@
+{{#if name}}
+    <h1>Hola mundo {{name}}</h1>
+{{else}}
+    <h1>Hoola sin nombre</h1>
+{{/if}}
+<ul>
+    {{#each cities}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>
+
+{{#unless name}} //If negativo
+    <h1>No hay  nombre</h1>
+{{else}}
+    <h1>{{name}}</h1>
+{{/unless}}

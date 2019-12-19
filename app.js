@@ -9,9 +9,9 @@ const DB_PORT = process.env.DB_PORT;
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
-app.use(Express.static(__dirname + "/public"));
-app.set("views", __dirname + "/views");
-app.set("view engine", "hbs");
+app.use(Express.static(__dirname + "/public")); //Para decirle donde van los estáticos
+app.set("views", __dirname + "/views"); // Para decirle donde van las listas
+app.set("view engine", "hbs"); //Para decirle que el hbs es el que renderiza las vistas
 
 app.use(
   session({
@@ -34,6 +34,7 @@ app.use("/users", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
 app.use("/userAccess", require("./routes/userAccess"));
 app.use("/adminAccess", require("./routes/adminAccess"));
+app.use("/beers", require("./routes/beers"));
 
 mongoose
   .connect(`mongodb://localhost:${DB_PORT}/app`, {

@@ -5,6 +5,9 @@ const bcrypt = require("bcryptjs")
 const router = Express.Router();
 const User = require("../../models/User");
 
+router.get("/", (req,res)=>{
+    res.render("signup"); 
+})
 
 router.post("/", async (req, res) => {
 
@@ -38,7 +41,8 @@ router.post("/", async (req, res) => {
 
         await user.save()
 
-     res.status(200).json({ message: "Usuario creado correctamente", user })
+//     res.status(200).json({ message: "Usuario creado correctamente", user })
+res.redirect('/beers/all')  //En beers se puede meter un middleware donde metes la autenticación de login. 
 
     } catch(error){
         console.log(error)
